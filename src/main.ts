@@ -12,7 +12,7 @@ import {
   RouterHistory,
   createWebHashHistory
 } from 'vue-router'
-import { routeList } from './constants/routeList'
+import { routeList } from './constants/index'
 // import 'ant-design-vue/dist/antd.less'
 
 let app: VueInstance | null = null
@@ -22,11 +22,7 @@ let router: Router | null = null
 function render(props: any) {
   const { container } = props
   app = createApp(App)
-  history = createWebHashHistory(
-    // qiankunWindow.__POWERED_BY_QIANKUN__ ? '/app/vue-app' : '',
-    qiankunWindow.__POWERED_BY_QIANKUN__ ? '#' : '',
-  )
-  // history = createWebHashHistory()
+  history = createMemoryHistory()
   router = createRouter({
     history: history,
     routes: routeList,
